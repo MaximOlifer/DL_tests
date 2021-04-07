@@ -1,5 +1,5 @@
 from tensorflow import keras
-from keras.datasets import mnist # Датасет
+from tensorflow.keras.datasets import mnist # Датасет
 
 test_name = "keras_test"
 

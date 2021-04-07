@@ -1,10 +1,10 @@
 from tensorflow import keras
-from keras.applications.mobilenet import MobileNet
-from keras.applications.mobilenet import preprocess_input
-from keras.models import Model
-from keras.datasets import cifar10
-from keras import Input
-from keras.utils import np_utils # Утилиты для one-hot encoding
+from tensorflow.keras.applications.mobilenet import MobileNet
+from tensorflow.keras.applications.mobilenet import preprocess_input
+from tensorflow.keras.models import Model
+from tensorflow.keras.datasets import cifar10
+from tensorflow.keras import Input
+from tensorflow.keras.utils import np_utils # Утилиты для one-hot encoding
 
 
 test_name = "keras_ic_mobilenet_cifar10"
