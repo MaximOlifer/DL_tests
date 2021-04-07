@@ -1,5 +1,5 @@
 import tensorflow as tf
-import keras
+from tensorflow import keras
 
 print(tf.config.list_physical_devices('GPU'))
 

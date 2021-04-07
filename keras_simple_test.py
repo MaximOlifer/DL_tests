@@ -1,4 +1,4 @@
-import keras
+from tensorflow import keras
 from keras.datasets import mnist # Датасет
 
 test_name = "keras_test"
