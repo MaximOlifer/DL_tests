@@ -44,7 +44,7 @@ model.compile(optimizer='adam',
 
 
 # Callbacks
-from keras.callbacks import CSVLogger
+from tensorflow.keras.callbacks import CSVLogger
 
 csv_logger = CSVLogger('log_'+test_name+'.csv', append=True, separator=';')
 

@@ -18,7 +18,7 @@ model.compile(optimizer='adam',
               metrics=['accuracy'])
 
 
-from keras.callbacks import CSVLogger
+from tensorflow.keras.callbacks import CSVLogger
 
 csv_logger = CSVLogger('log_keras_test.csv', append=True, separator=';')
 
