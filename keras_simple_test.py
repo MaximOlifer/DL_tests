@@ -39,7 +39,6 @@ class TimeHistory(keras.callbacks.Callback):
 time_cb = TimeHistory()
 
 
-start = time.time()
 history = model.fit(
     train_images,
     train_labels,
@@ -48,10 +47,9 @@ history = model.fit(
     validation_data=(test_images, test_labels),
     callbacks=[csv_logger, time_cb]
 )
-end = time.time()
 
 with open("keras_test_result.txt", "w") as fout:
-    fout.write("Total time: " + str(end - start) + "s\n")
+    fout.write("Total time: " + str(sum(time_cb.times)) + "s\n")
 
     loss, acc = model.evaluate(test_images, test_labels, verbose=0)
     fout.write("Test loss: " + str(loss) + "\nTest acc: " + str(acc) + "\n")

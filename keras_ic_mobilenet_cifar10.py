@@ -4,7 +4,7 @@ from tensorflow.keras.applications.mobilenet import preprocess_input
 from tensorflow.keras.models import Model
 from tensorflow.keras.datasets import cifar10
 from tensorflow.keras import Input
-from tensorflow.keras.utils import np_utils # Утилиты для one-hot encoding
+from tensorflow.keras.utils import to_categorical # Утилиты для one-hot encoding
 
 
 test_name = "keras_ic_mobilenet_cifar10"
@@ -14,8 +14,8 @@ def load_data():
     # load data
     (trainX, trainY), (testX, testY) = cifar10.load_data()
     #one-hot encoding
-    trainY = np_utils.to_categorical(trainY)
-    testY = np_utils.to_categorical(testY)
+    trainY = to_categorical(trainY)
+    testY = to_categorical(testY)
     # convert from integers to floats
     train_norm = trainX.astype('float32')
     test_norm = testX.astype('float32')
@@ -65,12 +65,10 @@ class TimeHistory(keras.callbacks.Callback):
 time_cb = TimeHistory()
 
 # fit model
-start = time.time()
 history = model.fit(trainX, trainY, epochs=15, batch_size=64, validation_data=(testX, testY), callbacks=[time_cb, csv_logger])
-end = time.time()
 
 with open(test_name+"_result.txt", "w") as fout:
-    fout.write("Total time: " + str(end - start) + "s\n")
+    fout.write("Total time: " + str(sum(time_cb.times)) + "s\n")
 
     loss, acc = model.evaluate(testX, testY, verbose=0)
     fout.write("Test loss: " + str(loss) + "\nTest acc: " + str(acc) + "\n")
