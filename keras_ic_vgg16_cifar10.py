@@ -65,9 +65,10 @@ time_cb = TimeHistory()
 
 history = model.fit(trainX, trainY, epochs=15, batch_size=64, validation_data=(testX, testY), callbacks=[time_cb, csv_logger])
 
-loss, acc = model.evaluate(test_images, test_labels, verbose=0)
+
 print("Total time: " + str(sum(time_cb.times)) + "s")
 print("Test loss: " + str(loss) + "\nTest acc: " + str(acc))
+loss, acc = model.evaluate(testX, testY, verbose=0)
 
 with open("keras_ic_vgg16_cifar10_result.txt", "w") as fout:
     fout.write("Total time: " + str(sum(time_cb.times)) + "s\n")

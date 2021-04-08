@@ -42,7 +42,7 @@ model.compile(optimizer='adam',
               loss='categorical_crossentropy',
               metrics=['accuracy'])
 
-from keras.callbacks import CSVLogger
+from tensorflow.keras.callbacks import CSVLogger
 
 csv_logger = CSVLogger('log_+'+test_name+'.csv', append=True, separator=';')
 
@@ -65,9 +65,10 @@ time_cb = TimeHistory()
 # fit model
 history = model.fit(trainX, trainY, epochs=15, batch_size=64, validation_data=(testX, testY), callbacks=[time_cb, csv_logger])
 
-loss, acc = model.evaluate(test_images, test_labels, verbose=0)
+
 print("Total time: " + str(sum(time_cb.times)) + "s")
 print("Test loss: " + str(loss) + "\nTest acc: " + str(acc))
+loss, acc = model.evaluate(testX, testY, verbose=0)
 
 with open(test_name + "_result.txt", "w") as fout:
     fout.write("Total time: " + str(sum(time_cb.times)) + "s\n")
