@@ -71,7 +71,8 @@ model.fit_generator(
     ],
 )
 
-print(f'Total time: {sum(time_cb.times)}')
+time = sum(time_cb.times)
+print(f'Total time: {time}')
 
 # Use the trained model
 inputs, output_layer = get_model(
