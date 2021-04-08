@@ -7,7 +7,6 @@ from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.models import Model
 from tensorflow.keras.datasets import cifar10
 from tensorflow.keras import Input
-from matplotlib import pyplot
 from numpy import expand_dims
 from tensorflow.keras.utils import to_categorical # Утилиты для one-hot encoding
 
