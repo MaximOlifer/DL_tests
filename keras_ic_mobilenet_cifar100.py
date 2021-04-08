@@ -67,8 +67,8 @@ history = model.fit(trainX, trainY, epochs=15, batch_size=64, validation_data=(t
 
 
 print("Total time: " + str(sum(time_cb.times)) + "s")
-print("Test loss: " + str(loss) + "\nTest acc: " + str(acc))
 loss, acc = model.evaluate(testX, testY, verbose=0)
+print("Test loss: " + str(loss) + "\nTest acc: " + str(acc))
 
 with open(test_name + "_result.txt", "w") as fout:
     fout.write("Total time: " + str(sum(time_cb.times)) + "s\n")
