@@ -49,7 +49,7 @@ csv_logger = CSVLogger('log_+'+test_name+'.csv', append=True, separator=';')
 import time
 
 
-class TimeHistory(keras.callbacks.Callback):
+class TimeHistory(tensorflow.keras.callbacks.Callback):
     def on_train_begin(self, logs={}):
         self.times = []
 
